@@ -4,7 +4,7 @@
 # 실습 환경
 - 공격자 [Kali]
 - 피해자 [metasplotable server]
-- IDS [Security Onion -suguil]
+- IDS [Security Onion -sguil]
 
 # ICMP Flood(Fragment)공격 시그니처 분석하기
 ```
@@ -19,7 +19,7 @@ hping3 icmp --rand-source [Dst IP] -d [packet length] --flood
 - 데이터 부분에 16비트 이후 부터 58585858 반복 되는 시그니처를 발견
 
 # 분석한 시그니처로 침입탐지 룰 정의하기
-- security onion - suguil 룰 설정
+- security onion - sguil 룰 설정
 > ![lcal_ruies](https://github.com/hanmin0512/IDS_ICMP_Detection/assets/37041208/8cf5cb46-f07f-4dbe-9e9e-b826a91a90a7)
 
 ```
@@ -28,7 +28,7 @@ alert icmp any any -> any any (msg:"Ping Of Death"; sid:3000007; threshold:type 
 >![rule](https://github.com/hanmin0512/IDS_ICMP_Detection/assets/37041208/05bd6f63-801d-496c-81a8-fb9e5c546f3c)
 
 # 침임 탐지 검증
-- suguil에 탐지 되는 것을 확인
+- sugil에 탐지 되는 것을 확인
 > ![suguilfull](https://github.com/hanmin0512/IDS_ICMP_Detection/assets/37041208/9aaf84db-97b3-448d-a057-8fe43eb7a3ae)
 
 - Ping Of Death로 탐지된 패킷 자세히 보기
